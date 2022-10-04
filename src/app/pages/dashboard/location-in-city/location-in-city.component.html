@@ -1,0 +1,29 @@
+<!-- <div class="d-flex container-fluid flex-md-column gap-20 mb-xs-15 my-md-10 justify-content-center flex-wrap">
+    <h1>Location in {{ ' '+ city }}</h1>
+    <div *ngFor="let locationInCity of locationsInCity">
+        <div *ngIf="locationInCity.city === city">
+            <div class="d-flex container-fluid gap-20 justify-content-center flex-wrap">
+                <div *ngFor="let location of locationInCity.locations" class="card col-md-4 col-12 shadow">
+                    <div class="container d-flex flex-column align-items-center justify-content-center" [routerLink]="['/location-details',location]">
+                        <h1>{{ location }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <div *ngFor="let locationInCity of locationsInCity">
+        <div *ngIf="locationInCity.city === city" class="main-content">
+            <h1>Location in {{ ' ' + city }}</h1>
+            <div class="cards">
+                <div *ngFor="let location of locationInCity.locations">
+                    <div class="card" [routerLink]="['/location-details',location]">
+                        <h2>{{ location }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

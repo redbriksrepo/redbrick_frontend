@@ -1,0 +1,160 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body p-lg-17">
+      <h1>Old Proposals</h1>
+      <div class="d-flex justify-content-end">
+        <mat-form-field appearance="standard">
+          <input matInput (keyup)="applyFilter($event)" autocomplete="off" placeholder="Filter" #input>
+        </mat-form-field>
+      </div>
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="w-100">
+          <ng-container matColumnDef="sr">
+            <th mat-header-cell *matHeaderCellDef>Sr</th>
+            <td mat-cell *matCellDef="let row;let i = index">{{ i+1 }}</td>
+          </ng-container>
+          <ng-container matColumnDef="spocName">
+            <th mat-header-cell *matHeaderCellDef> Name Of Spoc </th>
+            <td mat-cell *matCellDef="let row"> {{row.spocName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let row"> {{(row.createdAt).split('T')[0]}} </td>
+          </ng-container>
+          <ng-container matColumnDef="brokerType">
+            <th mat-header-cell *matHeaderCellDef> Broker </th>
+            <td mat-cell *matCellDef="let row"> {{row.broker.brokerType}} </td>
+          </ng-container>
+          <ng-container matColumnDef="workStation">
+            <th mat-header-cell *matHeaderCellDef> Workstation </th>
+            <td mat-cell *matCellDef="let row"> {{row.workStation}} </td>
+          </ng-container>
+          <ng-container matColumnDef="cabin">
+            <th mat-header-cell *matHeaderCellDef> Cabin </th>
+            <td mat-cell *matCellDef="let row"> {{row.cabin}} </td>
+          </ng-container>
+          <ng-container matColumnDef="meetingRooms">
+            <th mat-header-cell *matHeaderCellDef> Meeting Rooms </th>
+            <td mat-cell *matCellDef="let row"> {{row.meetingRooms}} </td>
+          </ng-container>
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td class="action" mat-cell *matCellDef="let row" >
+              <!-- Edit Button -->
+              <div class="d-flex gap-1 justify-content-end">
+                <button mat-icon-button (click)="editProposal(row._id)">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <!-- Delete Button -->
+                <button mat-icon-button (click)="deleteProposal(row._id)">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+                <!-- Accept Button -->
+                <button mat-icon-button *ngIf="Admin || SalesHead" (click)="approveProposal(row._id)">
+                  <i class="bi bi-check-circle-fill"></i>
+                </button>
+                <!-- Decline Button -->
+                <button mat-icon-button *ngIf="Admin || SalesHead" (click)="declineProposal(row._id)">
+                  <i class="bi bi-x-circle-fill"></i>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+          <!-- <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td class="delete" mat-cell *matCellDef="let row"><i class="bi bi-trash-fill"></i></td>
+          </ng-container>
+          <ng-container  matColumnDef="accept">
+            <th mat-header-cell *matHeaderCellDef> Accept </th>
+            <td class="edit" mat-cell *matCellDef="let row"><i class="bi bi-check-circle-fill"></i></td>
+          </ng-container>
+          <ng-container  matColumnDef="decline">
+            <th mat-header-cell *matHeaderCellDef> Decline </th>
+            <td  class="delete" mat-cell *matCellDef="let row"><i class="bi bi-x-circle-fill"></i></td>
+          </ng-container> -->
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="9">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+      </div>
+      <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" aria-label="Select page of users"></mat-paginator>
+
+      <!--<table class="table  table-hover">
+         <tr>
+          <th rowspan="2">Sr No.</th>
+          <th rowspan="2">Name Of SPOC</th>
+          <th rowspan="2">Date</th>
+          <th rowspan="2">Broker Type</th>
+          <th rowspan="2">WorkStation</th>
+          <th rowspan="2">Cabins</th>
+          <th rowspan="2">Meeting Rooms</th>
+          <th rowspan="2">Status</th>
+          <th colspan="2">Action</th>
+          <th *ngIf="SalesHead || Admin" colspan="2">Sales Head</th>
+        </tr>
+        <tr >
+          <th>Edit</th>
+          <th>Delete</th>
+          <th *ngIf="SalesHead || Admin">Approve</th>
+          <th *ngIf="SalesHead || Admin">Decline</th>
+        </tr>
+        <tr *ngFor="let proposal of Proposals">
+          <td>{{ proposal.sr }}</td>
+          <td>{{ proposal.nameOfSpoc }}</td>
+          <td>{{ proposal.date }}</td>
+          <td>{{ proposal.broker }}</td>
+          <td>{{ proposal.workStation }}</td>
+          <td>{{ proposal.meetingRooms }}</td>
+          <td>{{ proposal.cabin}}</td>
+          <td>{{ proposal.status }}</td>
+          <td class="edit" (click)="edit()">
+            <i class="bi bi-pencil-fill"></i>
+          </td>
+          <td class="delete">
+            <i class="bi bi-trash-fill"></i>
+          </td>
+          <td *ngIf="SalesHead || Admin" class="edit">
+            <i class="bi bi-check-circle-fill"></i>
+          </td>
+          <td *ngIf="SalesHead || Admin" class="delete">
+            <i class="bi bi-x-circle-fill"></i>
+          </td>
+        </tr>
+      </table> -->
+    </div>
+  </div>
+</div>
+<div *ngIf="confirmDelete" class="modal fade show bg-dark bg-opacity-25" id="exampleModalCenter" tabindex="-1"
+  aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog" style="display: block;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Confirm Delete</h5>
+        <button type="button" (click)="closeConfirmDeleteDialog()" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3>Are you sure You want to delete this proposal</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+          (click)="cancelDelete()">cancel</button>
+        <button type="button" class="btn btn-primary" (click)="closeConfirmDeleteDialog()">Proceed</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <swal
+  #deleteSwal
+  title="Delete Proposal ?"
+  text="This cannot be undone"
+  icon="question">
+</swal> -->

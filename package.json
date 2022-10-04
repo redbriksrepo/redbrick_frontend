@@ -1,0 +1,89 @@
+{
+  "name": "angular-electron",
+  "version": "0.0.0",
+  "main": "main.js",
+  "author": "Manprit Tiwari",
+  "description": "this is only for test electron app",
+  "license": "ISC",
+  "scripts": {
+    "ng": "ng",
+    "start": "electron-forge start",
+    "build": "ng build --aot --base-href ./",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "electron": "electron .",
+    "electron-build": "ng build --aot --base-href ./ && electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^14.1.0",
+    "@angular/cdk": "^14.2.0",
+    "@angular/common": "^14.1.0",
+    "@angular/compiler": "^14.1.0",
+    "@angular/core": "^14.1.0",
+    "@angular/forms": "^14.1.0",
+    "@angular/material": "^14.2.0",
+    "@angular/platform-browser": "^14.1.0",
+    "@angular/platform-browser-dynamic": "^14.1.0",
+    "@angular/router": "^14.1.0",
+    "@ngneat/hot-toast": "^4.1.0",
+    "bootstrap": "^5.2.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "getmac": "^5.20.0",
+    "lodash": "^4.17.21",
+    "macaddress": "^0.5.3",
+    "ngx-device-detector": "^4.0.1",
+    "path": "^0.12.7",
+    "rxjs": "~7.5.0",
+    "sweetalert2": "^11.4.30",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.1.1",
+    "@angular/cli": "~14.1.1",
+    "@angular/compiler-cli": "^14.1.0",
+    "@electron-forge/cli": "^6.0.0-beta.65",
+    "@electron-forge/maker-deb": "^6.0.0-beta.65",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.65",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+    "@electron-forge/maker-zip": "^6.0.0-beta.65",
+    "@types/jasmine": "~4.0.0",
+    "@types/lodash": "^4.14.184",
+    "electron": "^20.0.3",
+    "jasmine-core": "~4.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "typescript": "~4.7.2"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "angular_electron"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "name": "angular_electron"
+          }
+        }
+      ]
+    }
+  }
+}

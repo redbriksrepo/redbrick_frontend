@@ -1,0 +1,114 @@
+<!-- <div class="container-fluid">
+  <div class="card shadow">
+    <div class="card-body p-lg-17"> -->
+      <h1 mat-dialog-title>Add User</h1>
+      <div class="container">
+        <form  [formGroup]="addUser" (ngSubmit)="onSubmit()" >
+          <div mat-dialog-content>
+            <div class="col-12 d-flex w-100 justify-content-center my-2">
+              <div class="profilePicture">
+                <img [src]="baseUrl + profileImage">
+                <div class="profilePicture-Action">
+                  <button type="button" mat-flat-button (click)="uploadProfile.click()">Edit</button>
+                </div>
+                <input type="file" formControlName="userImage" (change)="uploadProfileImage($event)" accept=".jpg" hidden #uploadProfile>
+              </div>
+            </div>
+            <div class="d-flex justify-content-around flex-wrap py-4">
+              <div class="col-md-5">
+                <label for="firstName" class="fs-5 fw-bold mb-3">First Name</label>
+                <input type="text" formControlName="firstName"  class="form-control form-control-solid">
+                <mat-error>First Name is required</mat-error>
+              </div>
+              <div class="col-md-5">
+                <label for="firstName" class="fs-5 fw-bold mb-3">Last Name</label>
+                <input type="text" formControlName="lastName"  class="form-control form-control-solid">
+                <mat-error>Last Name is required</mat-error>
+              </div>
+              <div class="col-md-5">
+                <label for="firstName" class="fs-5 fw-bold mb-3">Mobile No</label>
+                <input type="tel" formControlName="mobileNo" maxlength="10" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  class="form-control form-control-solid">
+                <mat-error>Mobile No is required</mat-error>
+              </div>
+              <div class="col-md-5 col-12">
+                <label for="firstName" class="fs-5 fw-bold mb-3">Date Of Birth</label>
+                <input type="date" formControlName="dateOfBirth"   class="form-control form-control-solid">
+                <mat-error>Date of Birth is required</mat-error>
+              </div>
+              <div class="col-md-5">
+                <label for="firstName" class="fs-5 fw-bold mb-3">Designation</label>
+                <input type="text" formControlName="designation"  class="form-control form-control-solid">
+                <mat-error>Designation is required</mat-error>
+              </div>
+              <div class="col-md-5">
+                <label for="firstName" class="fs-5 fw-bold mb-3">Aadhar No</label>
+                <input type="text" formControlName="aadharNo"  class="form-control form-control-solid">
+                <mat-error>Aadhar No is required</mat-error>
+                <mat-error *ngIf="aadhaarNO?.errors?.['invalidAadhaar'] && aadhaarNO?.touched">Please Enter a valid Aadhar No.</mat-error>
+              </div>
+              <div class="col-md-5">
+                <label for="firstName" class="fs-5 fw-bold mb-3">Pan No.</label>
+                <input type="text" formControlName="panNo"  class="form-control form-control-solid">
+                <mat-error>Pan No. is required</mat-error>
+                <mat-error *ngIf="pan?.errors?.['invalidPan'] && pan?.touched">Please Enter a valid Pan No.</mat-error>
+              </div>
+              <div class="col-md-5 col-12">
+                <label for="firstName" class="fs-5 fw-bold mb-3">Role</label>
+                <select name="" formControlName="role"  class="form-select form-select-solid">
+                  <option value=""></option>
+                  <option value="admin">Admin</option>
+                  <option value="salesHead">Sales Head</option>
+                  <option value="rm">R M </option>
+                </select>
+                <mat-error>Role is required</mat-error>
+              </div>
+              <div class="col-md-5">
+                <label for="firstName" class="fs-5 fw-bold mb-3">Address</label>
+                <input type="text" formControlName="address"  class="form-control form-control-solid">
+                <mat-error>Address is required</mat-error>
+              </div>
+              <div class="col-md-5 col-12">
+                <label for="firstName" class="fs-5 fw-bold mb-3">City</label>
+                <select name="" formControlName="city"  class="form-select form-select-solid">
+                  <option value="">-- Category --</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Kolkata">Kolkata</option>
+                </select>
+                <mat-error>city is required</mat-error>
+              </div>
+              <div class="col-md-5">
+                <label for="firstName" class="fs-5 fw-bold mb-3">Username</label>
+                <input type="text" formControlName="userName"  class="form-control form-control-solid" autocomplete="off">
+                <mat-error>Username is Required</mat-error>
+              </div>
+              <div class="col-md-5">
+                <label for="firstName" class="fs-5 fw-bold mb-3">Password</label>
+                <input type="password" formControlName="password" (change)="passwordChanged()"  class="form-control form-control-solid" autocomplete="off">
+                <mat-error *ngIf="addUser.get('password')?.errors?.['required']">Password is Required</mat-error>
+                <mat-error>Password is required</mat-error>
+              </div>
+            </div>
+          </div>
+          <mat-dialog-actions class="d-flex flex-wrap flex-md-nowrap justify-content-around gap-6 w-100 mt-4">
+            <button type="button" class="btn btn-danger col-md-3 col-12"  mat-dialog-close="Cancel">
+              <!--begin::Indicator-->
+              <span class="indicator-label">Cancel</span>
+              <!-- <span class="indicator-progress">Please wait...
+                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
+              <!--end::Indicator-->
+            </button>
+            <button type="submit" class="btn btn-danger col-md-3 col-12 "   [disabled]="addUser.invalid">
+              <!--begin::Indicator-->
+              <span class="indicator-label">{{data.editMode === true?'Update User':'Add User'}}</span>
+              <!-- <span class="indicator-progress">Please wait..
+                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
+              <!--end::Indicator-->
+            </button>
+          </mat-dialog-actions>
+        </form>
+      </div>
+    <!-- </div>
+  </div>
+</div> -->

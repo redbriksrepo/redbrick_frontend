@@ -1,0 +1,91 @@
+// td, th {
+//   border: 1px solid #dddddd;
+//   text-align: center;
+//   padding: 8px;
+// }
+// table{
+//   tr:first-child,tr:nth-child(2){
+//     background-color: #fea6a3;
+//   }
+//   tr:hover:not(:first-child){
+//     background-color: #dddddd;
+//   }
+//   .delete i{
+//     color: red;
+//     font-size: 1.5rem;
+//   }
+//   .edit i{
+//     color: green;
+//     font-size: 1.5rem;
+
+//   }
+// }
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+.table-container {
+  overflow-x: auto;
+}
+table {
+  text-align: center;
+  font-family: "Poppins" !important;
+  tr th {
+    background-color: #fea6a3;
+    text-align: center;
+    font-size: medium;
+  }
+  tr:hover {
+    background-color: #dddddd;
+  }
+  .delete i,.bi-trash-fill,.bi-x-circle-fill{
+    color: red;
+    font-size: 1.5rem;
+  }
+  .edit i ,.bi-pencil-fill,.bi-check-circle-fill{
+    color: green;
+    font-size: 1.5rem;
+    padding: 8px;
+  }
+}
+
+.action{
+  width: 10px;
+}
+
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
+  padding: 8px;
+}
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+  padding: 8px;
+}
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  padding: 8px;
+}
+button.mat-focus-indicator.mat-raised-button.mat-button-base {
+  height: 4rem;
+  width: 12rem;
+  color: white;
+  background-color: #fda1a3;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-inline-start: 2rem;
+}
+@media (max-width: 500px) {
+  mat-form-field {
+    width: 10rem;
+  }
+  button.mat-focus-indicator.mat-raised-button.mat-button-base {
+    width: 10rem;
+    font-size: 1.2rem;
+  }
+}

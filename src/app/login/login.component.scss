@@ -1,0 +1,27 @@
+.form-container{
+    display: block;
+    // max-width: 300px;
+    margin: 2rem auto;
+    background: #eceff1;
+    padding:48px;
+    border-radius: 16px;
+
+    mat-form-field{
+        width: 100%;
+    }
+    .center{
+        display: flex;
+        justify-content: center;
+        padding: 16px 0 0;
+    }
+}
+@media (max-width: 450px) {
+    .form-container{
+        max-width: 255px;
+    }
+}
+
+.text-center{
+    text-align: center;
+}
+

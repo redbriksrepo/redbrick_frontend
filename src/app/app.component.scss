@@ -1,0 +1,21 @@
+mat-toolbar{
+    display: flex;
+    justify-content: space-between;
+
+    .toolbar-list{
+        display: flex;
+        gap: 1rem;
+    }
+
+    h1{
+        cursor: pointer;
+    }
+
+}
+
+.container-fluid{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,36 @@
+.profilePicture{
+  height: 15rem;
+  width: 15rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  position: relative;
+  img{
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+
+  }
+
+  .profilePicture-Action{
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease;
+  }
+  // button{
+  //   opacity: 50%;
+  // }
+}
+
+.profilePicture:hover .profilePicture-Action{
+  display: flex;
+}
+.profilePicture:hover img{
+  opacity: 0.3;
+}

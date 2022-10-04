@@ -1,0 +1,126 @@
+<h1 mat-dialog-title>Add Location</h1>
+<div class="contianer">
+  <form [formGroup]="addLocation" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="d-flex justify-content-around flex-wrap py-4">
+      <div class="col-md-5 my-3">
+        <label for="firstName" class="fs-5 fw-bold mb-3">City</label>
+        <input type="text" formControlName="city"  id="" class="form-control form-control-solid">
+      </div>
+      <div class="col-md-5 my-3">
+        <label for="" class="fs-5 fw-bold mb-3">State</label>
+        <input type="text" formControlName="state" name="" id="" class="form-control form-control-solid">
+      </div>
+      <div class="col-md-5 my-3">
+        <label for="" class="fs-5 fw-bold mb-3">Area</label>
+        <input type="text" formControlName="area" name="" id="" class="form-control form-control-solid">
+      </div>
+      <div class="col-md-5 my-3">
+        <label for="" class="fs-5 fw-bold mb-3">Locality</label>
+        <input type="text" formControlName="locality" name="" id="" class="form-control form-control-solid">
+      </div>
+      <div class="col-md-5 my-3">
+        <label for="" class="fs-5 fw-bold mb-3">Dimension</label>
+        <input type="text" formControlName="dimension" name="" id="" class="form-control form-control-solid">
+      </div>
+      <div class="col-md-5 my-3">
+        <label for="" class="fs-5 fw-bold mb-3">Address</label>
+        <input type="text" formControlName="address" name="" id="" class="form-control form-control-solid">
+      </div>
+      <div class="col-md-5 my-3">
+        <label for="" class="fs-5 fw-bold mb-3">Pin Code</label>
+        <input type="text" formControlName="pinCode" name="" id="" class="form-control form-control-solid">
+      </div>
+      <div class="col-md-5 my-3">
+        <label for="" class="fs-5 fw-bold mb-3">Images</label>
+        <input type="file" (change)="uploadImages($event)" #file class="form-control form-control-solid" multiple>
+      </div>
+      <!-- <div *ngIf="data.editMode === true" class="col-12 p-5 d-flex flex-wrap gap-4">
+        <div *ngFor="let image of FormData.images" class="col-5">
+          <img [src]="'http://192.168.29.233:3000/'+image" alt="images" class="w-100">
+        </div>
+      </div> -->
+      <!-- <div  formArrayName="workStation" class="col-md-5 my-3">
+        <div>
+          <button class="btn btn-info" type="button" (click)="onAdd('workStation')">
+            Add Workstation
+          </button>
+        </div>
+        <div class="form-group mt-3 d-flex gap-1" *ngFor="let workStation of addLocation.get('workStation')?.controls; let i = index">
+          <input type="text" class="form-control form-control-solid" [formControlName]="i" id="" placeholder="Dimension">
+          <button class="btn btn-dark" (click)="onRemove('workStation',i)">X</button>
+        </div>
+      </div>
+      <div  formArrayName="cabin" class="col-md-5 my-3">
+        <div>
+          <button class="btn btn-info" type="button" (click)="onAdd('cabin')">
+            Add Cabin
+          </button>
+        </div>
+        <div class="form-group mt-3 d-flex gap-1" *ngFor="let workStation of addLocation.get('cabin')?.controls; let i = index">
+          <input type="text" class="form-control form-control-solid" [formControlName]="i" id="" placeholder="Dimension">
+          <button class="btn btn-dark" (click)="onRemove('cabin',i)">X</button>
+        </div>
+      </div>
+      <div  formArrayName="meetingRoom" class="col-md-5 my-3">
+        <div>
+          <button class="btn btn-info" type="button" (click)="onAdd('meetingRoom')">
+            Add Meeting Room
+          </button>
+        </div>
+        <div class="form-group mt-3 d-flex gap-1" *ngFor="let workStation of addLocation.get('meetingRoom')?.controls; let i = index">
+          <input type="text" class="form-control form-control-solid" [formControlName]="i" id="" placeholder="Dimension">
+          <button class="btn btn-dark" (click)="onRemove('meetingRoom',i)">X</button>
+        </div>
+      </div>
+      <div  formArrayName="cafeteria" class="col-md-5 my-3">
+        <div>
+          <button class="btn btn-info" type="button" (click)="onAdd('cafeteria')">
+            Add Cafeteria
+          </button>
+        </div>
+        <div class="form-group mt-3 d-flex gap-1" *ngFor="let workStation of addLocation.get('cafeteria')?.controls; let i = index">
+          <input type="text" class="form-control form-control-solid" [formControlName]="i" id="" placeholder="Dimension">
+          <button class="btn btn-dark" (click)="onRemove('cafeteria',i)">X</button>
+        </div>
+      </div>
+      <div  formArrayName="storageRoom" class="col-md-5 my-3">
+        <div>
+          <button class="btn btn-info" type="button" (click)="onAdd('storageRoom')">
+            Add Storage Room
+          </button>
+        </div>
+        <div class="form-group mt-3 d-flex gap-1" *ngFor="let workStation of addLocation.get('storageRoom')?.controls; let i = index">
+          <input type="text" class="form-control form-control-solid" [formControlName]="i" id="" placeholder="Dimension">
+          <button class="btn btn-dark" (click)="onRemove('storageRoom',i)">X</button>
+        </div>
+      </div>
+      <div  formArrayName="dryPantry" class="col-md-5 my-3">
+        <div>
+          <button class="btn btn-info" type="button" (click)="onAdd('dryPantry')">
+            Add Dry Pantry
+          </button>
+        </div>
+        <div class="form-group mt-3 d-flex gap-1" *ngFor="let workStation of addLocation.get('dryPantry')?.controls; let i = index">
+          <input type="text" class="form-control form-control-solid" [formControlName]="i" id="" placeholder="Dimension">
+          <button class="btn btn-dark" (click)="onRemove('dryPantry',i)">X</button>
+        </div>
+      </div> -->
+    </mat-dialog-content>
+    <mat-dialog-actions class="d-flex flex-wrap flex-md-nowrap justify-content-center gap-6 w-100 mt-4">
+      <button type="reset" class="btn btn-danger col-md-3 col-12" id="kt_contact_submit_button" mat-dialog-close="Cancel">
+        <!--begin::Indicator-->
+        <span class="indicator-label">Cancel</span>
+        <!-- <span class="indicator-progress">Please wait...
+          <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
+        <!--end::Indicator-->
+      </button>
+      <button type="submit" class="btn btn-danger col-md-3 col-12 " id="kt_contact_submit_button" mat-dialog-close="submitted">
+        <!--begin::Indicator-->
+        <span class="indicator-label">Add Location</span>
+        <!-- <span class="indicator-progress">Please wait..
+          <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
+        <!--end::Indicator-->
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

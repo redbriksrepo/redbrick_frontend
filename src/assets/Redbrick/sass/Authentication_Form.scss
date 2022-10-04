@@ -1,0 +1,39 @@
+input{
+  border: 2px solid rgba(192, 192, 192, 0.4) !important;
+}
+input:focus,input:active{
+  border: 2px solid rgba(247, 77, 77) !important;
+}
+.btn.btn-light {
+  color: #F74D4D !important;
+  background-color: #ffcfcb !important;
+}
+.btn.btn-light:hover,.btn.btn-light:active{
+  background-color: #F74D4D !important;
+  color: #ffffff !important;
+}
+.btn.btn-primary{
+  font-size: 20px;
+  background-color: #4d91f7 !important;
+  color: #ffffff !important;
+}
+.btn.btn-primary:hover,.btn.btn-primary:active,.btn.btn-primary:focus{
+  background-color: #db4545 !important;
+  color: #ffffff !important;
+}
+.form-control.form-control-solid {
+  // background-color: #ffcfcb;
+  background-color: #ffffff;
+}
+.fv-plugins-message-container {
+  color: red !important;
+}
+.btn.btn-light-primary {
+  font-size: 20px;
+  color: #d0564e !important;
+  background-color: #ffcfcb !important;
+}
+.btn.btn-light-primary:hover,.btn.btn-light-primary:active{
+  background-color: #D0564E !important;
+  color: #ffffff !important;
+}

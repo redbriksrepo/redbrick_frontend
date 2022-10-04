@@ -1,0 +1,538 @@
+<div class="post d-flex flex-column-fluid" id="kt_post">
+    <!--begin::Container-->
+    <!-- <div id="kt_content_container" class="container-xxl"> -->
+    <div id="kt_content_container" class="w-100">
+
+        <!--begin::Contact-->
+        <div class="card shadow">
+            <!--begin::Body-->
+            <div class="card-body p-lg-17">
+                <!--begin::Row-->
+                <div class="row">
+                    <!--begin::Col-->
+                    <div class="col-md-12">
+                        <h1 class="fw-bolder text-dark mb-9">Proposal Requirement<span class="text-muted fs-3">{{': #'+ proposalId}}</span></h1>
+                        <form [formGroup]="proposalRequirement" (ngSubmit)="onSubmit()">
+                            <div formGroupName="workStation" class="d-flex flex-sm-row flex-column mb-5">
+                                <div class="col-md-4 col-12 fv-row my-2 align-self-start me-8">
+                                  <!--begin::Label-->
+                
+                                  <label class="fs-5 fw-bold mb-2">Workstation</label>
+                                  <!--end::Label-->
+                                  <!--begin::Input-->
+                                  <div class="d-flex">
+                                    <select formControlName="workStationCategory" id="" class="form-select form-select-solid">
+                                      <option value=""></option>
+                                      <option value="Pune">Pune</option>
+                                      <option value="Mumbai">Mumbai</option>
+                                      <option value="Delhi">Delhi</option>
+                                      <option value="Kolkata">Kolkata</option>
+                                    </select>
+                                    <i class="bi bi-plus-square-fill"></i>
+                
+                                  </div>
+                                  <div class="fv-row my-2">
+                                    <!--begin::Label-->
+                                    <label class="fs-5 fw-bold mb-2">Workstations Numbers</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="number" min="0" formControlName="workStationNumber" class="form-control form-control-solid">
+                                    <!--end::Input-->
+                                  </div>
+                                  <!--end::Input-->
+                                </div>
+                                <div class="col-md-8 col-12 fv-row my-2 d-flex flex-row flex-wrap flex-md-nowrap">
+                                  <div class="col-md-4 col-12 fv-row my-2 align-self-start me-8">
+                
+                                    <div class="fv-row my-2">
+                
+                                      <label class="fs-5 fw-bold mb-2">Collab Area</label>
+                                      <!-- <label class="form-check-label fs-5 fw-bold mb-2" for="flexCheckDefault">
+                                        Collab Area
+                                    </label> -->
+                
+                                      <div class="form-check form-check-custom form-check-solid mb-3">
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                          <input type="radio" formControlName="collabArea" class="btn-check" value="yes" id="btnradio1"
+                                            autocomplete="off" />
+                                          <label class="btn btn-outline-success btn-outline" for="btnradio1">Yes</label>
+                
+                                          <input type="radio" formControlName="collabArea" class="btn-check" value="no" id="btnradio2"
+                                            autocomplete="off" />
+                                          <label class="btn btn-outline-danger btn-outline" for="btnradio2"> No </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                
+                
+                                    <div class="fv-row my-2">
+                
+                                      <label class="fs-5 fw-bold mb-2">Dry Pantry</label>
+                                      <!-- <label class="form-check-label fs-5 fw-bold mb-2" for="flexCheckDefault">
+                                        Collab Area
+                                    </label> -->
+                                    <div class="form-check form-check-custom form-check-solid mb-3">
+                
+                                      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" formControlName="dryPantry" class="btn-check" value="yes" id="btnradio3" autocomplete="off"  />
+                                        <label class="btn btn-outline-success btn-outline" for="btnradio3">Yes</label>
+                
+                                        <input type="radio" formControlName="dryPantry" class="btn-check" value="no"  id="btnradio4" autocomplete="off"/>
+                                        <label class="btn btn-outline-danger btn-outline" for="btnradio4"> No </label>
+                                      </div>
+                                      </div>
+                                    </div>
+                                    
+                
+                
+                                  </div>
+                                  <div class="col-md-7 fv-row my-2 d-flex me-5 flex-column">
+                                    <div class="col-12 d-flex flex-row flex-wrap flex-md-nowrap">
+                                      <div class="col-md-8 col-12 flex-grow-1 me-5 order-md-1 order-2">
+                                        <div *ngIf="storageRoom?.value === 'yes'" class=" col-12">
+                                          <label class="fs-5 fw-bold mb-2">Storage Room</label>
+                                          <input type="number" min="0" formControlName="storageRoomNumber" class="form-control form-control-solid">
+                                        </div>
+                                      </div>
+                                      <div class="fv-row  order-md-2 order-1">
+                                        <label class="fs-5 fw-bold mb-2">Storage Room</label>
+                                        <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                  
+                                          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                            <input type="radio" formControlName="storageRoom" name="storageRoom" class="btn-check" value="yes" id="btnradio5" autocomplete="off"  />
+                                            <label class="btn btn-outline-success btn-outline" for="btnradio5">Yes</label>
+                  
+                                            <input type="radio" formControlName="storageRoom" name="storageRoom" class="btn-check" value="no"  id="btnradio6" autocomplete="off"/>
+                                            <label class="btn btn-outline-danger btn-outline" for="btnradio6"> No </label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- <div class="col-12 mb-md-6">
+                                      <div *ngIf="cafeteria?.value === 'yes'" class="col-12 justify-content-end">
+                                        <label class="fs-5 fw-bold mb-2">Cafeteria</label>
+                                        <input type="number" min="0" formControlName="cafeteriaNumber" id="" class="form-control form-control-solid">
+                                      </div>
+                                      </div> -->
+                                    </div>
+                                    <div class="col-12 d-flex flex-row flex-wrap flex-md-nowrap">
+                                      <div class="col-md-8 col-12 flex-grow-1 me-5 order-md-1 order-2">
+                                        <div *ngIf="cafeteria?.value === 'yes'" class="col-12 justify-content-end">
+                                          <label class="fs-5 fw-bold mb-2">Cafeteria</label>
+                                          <input type="number" min="0" formControlName="cafeteriaNumber" id="" class="form-control form-control-solid">
+                                        </div>
+                                      </div>
+                                      <div class="fv-row  order-md-2 order-1">
+                                        <label class="fs-5 fw-bold mb-2">Cafeteria</label>
+                                        <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                                          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                            <input type="radio" formControlName="cafeteria" name="cafeteria" class="btn-check" value="yes" id="btnradio7" autocomplete="off"  />
+                                            <label class="btn btn-outline-success btn-outline" for="btnradio7">Yes</label>
+                  
+                                            <input type="radio" formControlName="cafeteria" name="cafeteria" class="btn-check" value="no" id="btnradio8" autocomplete="off"/>
+                                            <label class="btn btn-outline-danger btn-outline" for="btnradio8"> No </label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- <div class="col-md-3 col-12 fv-row align-self-start me-8"> -->
+                                    <!-- <div class="fv-row my-2">
+                                      <label class="fs-5 fw-bold mb-2">Storage Room</label>
+                                      <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                          <input type="radio" formControlName="storageRoom" name="storageRoom" class="btn-check" value="yes" id="btnradio5" autocomplete="off"  />
+                                          <label class="btn btn-outline-success btn-outline" for="btnradio5">Yes</label>
+                
+                                          <input type="radio" formControlName="storageRoom" name="storageRoom" class="btn-check" value="no"  id="btnradio6" autocomplete="off"/>
+                                          <label class="btn btn-outline-danger btn-outline" for="btnradio6"> No </label>
+                                        </div>
+                                      </div>
+                                    </div> -->
+                                    <!-- <div class="fv-row my-2">
+                                      <label class="fs-5 fw-bold mb-2">Cafeteria</label>
+                                      <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                          <input type="radio" formControlName="cafeteria" name="cafeteria" class="btn-check" value="yes" id="btnradio7" autocomplete="off"  />
+                                          <label class="btn btn-outline-success btn-outline" for="btnradio7">Yes</label>
+                
+                                          <input type="radio" formControlName="cafeteria" name="cafeteria" class="btn-check" value="no" id="btnradio8" autocomplete="off"/>
+                                          <label class="btn btn-outline-danger btn-outline" for="btnradio8"> No </label>
+                                        </div>
+                                      </div>-->
+                                    <!-- </div>  -->
+                                  <!-- </div> -->
+                                </div>
+                              
+                                <!-- <div class="row pt-4">
+                                  <div class="form-check form-check-custom form-check-solid mb-3">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" formControlName="collabArea" class="btn-check" value="yes" id="btnradio1" autocomplete="off" />
+                                    <label class="btn btn-outline-success btn-outline" for="btnradio1">Yes</label>
+                
+                                    <input type="radio" formControlName="collabArea" class="btn-check"  value="no" id="btnradio2" autocomplete="off"/>
+                                    <label class="btn btn-outline-danger btn-outline" for="btnradio2"> No </label>
+                                  </div>
+                                    <label class="form-check-label fs-5 fw-bold mb-2" for="flexCheckDefault">
+                                        Collab Area
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-custom form-check-solid mb-3">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                      <input type="radio" formControlName="dryPantry" class="btn-check" value="yes" id="btnradio3" autocomplete="off"  />
+                                      <label class="btn btn-outline-success btn-outline" for="btnradio3">Yes</label>
+                
+                                      <input type="radio" formControlName="dryPantry" class="btn-check" value="no"  id="btnradio4" autocomplete="off"/>
+                                      <label class="btn btn-outline-danger btn-outline" for="btnradio4"> No </label>
+                                    </div>
+                                   <label class="form-check-label fs-5 fw-bold mb-2" for="flexCheckDefault">
+                                      Dry Pantry
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                      <input type="radio" name="storageRoom" class="btn-check" value="yes" id="btnradio5" autocomplete="off"  />
+                                      <label class="btn btn-outline-success btn-outline" for="btnradio5">Yes</label>
+                
+                                      <input type="radio" name="storageRoom" class="btn-check" value="no"  id="btnradio6" autocomplete="off"/>
+                                      <label class="btn btn-outline-danger btn-outline" for="btnradio6"> No </label>
+                                    </div>
+                                    <label class="form-check-label flex-grow-1 fs-5 fw-bold mb-2" for="flexCheckDefault">
+                                        Storage Room
+                                    </label>
+                                    
+                                    <div class="col-md-5 col-12 mt-4 mt-md-0 align-self-end">
+                                      <input type="number" formControlName="storageRoom" class="form-control form-control-solid">
+                                    </div>
+                                  </div>
+                                  <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                      <input type="radio" name="cafeteria" class="btn-check" value="yes" id="btnradio7" autocomplete="off"  />
+                                      <label class="btn btn-outline-success btn-outline" for="btnradio7">Yes</label>
+                
+                                      <input type="radio" name="cafeteria" class="btn-check" value="no" id="btnradio8" autocomplete="off"/>
+                                      <label class="btn btn-outline-danger btn-outline" for="btnradio8"> No </label>
+                                    </div>
+                                    <label class="form-check-label flex-grow-1 fs-5 fw-bold mb-2" for="flexCheckDefault">
+                                        Cafeteria
+                                    </label>
+                                    <div class="col-md-5 col-12 mt-4 mt-md-0 align-self-end">
+                                      <input type="number" formControlName="cafeteria" id="" class="form-control form-control-solid">
+                                    </div>
+                                  </div>
+                                </div> -->
+                              </div>
+                              <hr>
+                              <!-- ============================================================================================================================= -->
+                              <div formGroupName="cabin" class="d-flex flex-sm-row flex-column mb-5">
+                                <div class="col-md-4 col-12 fv-row my-2 align-self-start me-8">
+                                  <!--begin::Label-->
+                                  <label class="fs-5 fw-bold mb-2">Cabins</label>
+                                  <!--end::Label-->
+                                  <!--begin::Input-->
+                                  <div class="d-flex">
+                                    <select formControlName="cabinCategory" id="" class="form-select form-select-solid">
+                                      <option value=""></option>
+                                      <option value="Pune">Pune</option>
+                                      <option value="Mumbai">Mumbai</option>
+                                      <option value="Delhi">Delhi</option>
+                                      <option value="Kolkata">Kolkata</option>
+                                    </select>
+                                    <i class="bi bi-plus-square-fill"></i>
+                
+                                  </div>
+                                  <div class="fv-row my-2">
+                                    <!--begin::Label-->
+                                    <label class="fs-5 fw-bold mb-2">Cabin Numbers</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="number" min="0" formControlName="cabinNumber" class="form-control form-control-solid">
+                                    <!--end::Input-->
+                                  </div>
+                                  <!--end::Input-->
+                                  <!--end::Input-->
+                                </div>
+                                <div class="col-md-8 fv-row my-2 d-flex flex-row flex-wrap flex-md-nowrap">
+                                <div class="col-md-4 col-12 fv-row d-flex flex-row">
+                                  <div class="col-md-6 col-12 fv-row align-self-start me-8">
+                  
+                                    <div class="fv-row my-2">
+                                      <label class="fs-5 fw-bold mb-2">Reception</label>
+                                      <div class="form-check form-check-custom form-check-solid mb-3">
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                          <input type="radio" formControlName="reception" class="btn-check" value="yes" id="btnradio9"
+                                            autocomplete="off" />
+                                          <label class="btn btn-outline-success btn-outline" for="btnradio9">Yes</label>
+                    
+                                          <input type="radio" formControlName="reception" class="btn-check" value="no" id="btnradio10"
+                                            autocomplete="off" />
+                                          <label class="btn btn-outline-danger btn-outline" for="btnradio10"> No </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div formGroupName="visitorMeetingRoom" class="col-md-8 fv-row d-flex flex-row flex-wrap flex-md-nowrap">
+                                  <div  class="col-md-8 col-12 ms-md-7 pe-4 fv-row d-flex gap-3 flex-column">
+                                    <div *ngIf="visitorMeetingRoomToggle?.value === 'yes'" class=" col-12 mt-md-0 align-self-end">
+                                      <label class="fs-5 fw-bold mb-2">Category</label>
+                                      <div class="d-flex">
+                                        <select formControlName="visitorMeetingRoomCategory" class="form-select form-select-solid">
+                                          <option value="">-- Category --</option>
+                                          <option value="Pune">Pune</option>
+                                          <option value="Mumbai">Mumbai</option>
+                                          <option value="Delhi">Delhi</option>
+                                          <option value="Kolkata">Kolkata</option>
+                                        </select>
+                                        <i class="bi bi-plus-square-fill"></i>
+                    
+                                      </div>
+                                      <div class="fv-row my-2">
+                                        
+                                        <label class="fs-5 fw-bold mb-2">Meeting Room Numbers</label>
+                                      
+                                        <input type="number" min="0" formControlName="visitorMeetingRoomNumber"
+                                          class="form-control form-control-solid">
+                                      
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4 fv-row d-flex flex-row">
+                                    <div class="col-12 fv-row align-self-start me-8">
+                                      <div class="fv-row my-2">
+                                        <label class="fs-5 fw-bold mb-2">Visitor Meeting Room</label>
+                                        <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                                          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                            <input  type="radio" formControlName="visitorMeetingRoomToggle" name="visitorMeetingRoomToggle" class="btn-check" value="yes" id="btnradio11"
+                                              autocomplete="off" />
+                                            <label class="btn btn-outline-success btn-outline" for="btnradio11">Yes</label>
+                      
+                                            <input type="radio" formControlName="visitorMeetingRoomToggle" name="visitorMeetingRoomToggle" class="btn-check" value="no" id="btnradio12"
+                                              autocomplete="off" />
+                                            <label class="btn btn-outline-danger btn-outline" for="btnradio12"> No </label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+                              
+                
+                
+                                <!-- <div class="row w-100 pt-4">
+                                  <div class="form-check form-check-custom form-check-solid mb-3">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                      <input type="radio" formControlName="resecption" class="btn-check" value="yes" id="btnradio9"
+                                        autocomplete="off" />
+                                      <label class="btn btn-outline-success btn-outline" for="btnradio9">Yes</label>
+                
+                                      <input type="radio" formControlName="resecption" class="btn-check" value="no" id="btnradio10"
+                                        autocomplete="off" />
+                                      <label class="btn btn-outline-danger btn-outline" for="btnradio10"> No </label>
+                                    </div>
+                                    <label class="form-check-label fs-5 fw-bold mb-2" for="flexCheckDefault">
+                                      Reception
+                                    </label>
+                                  </div>
+                                  <div formGroupName="visitorMeetingRoom"
+                                    class="form-check form-check-custom align-items-start flex-wrap flex-md-nowrap form-check-solid mb-3">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                      <input type="radio" name="visitorMeetingRoom" class="btn-check" value="yes" id="btnradio11"
+                                        autocomplete="off" />
+                                      <label class="btn btn-outline-success btn-outline" for="btnradio11">Yes</label>
+                
+                                      <input type="radio" name="visitorMeetingRoom" class="btn-check" value="no" id="btnradio12"
+                                        autocomplete="off" />
+                                      <label class="btn btn-outline-danger btn-outline" for="btnradio12"> No </label>
+                                    </div>
+                                    <label class="form-check-label flex-grow-1 fs-5 fw-bold mt-3 mb-2" for="flexCheckDefault">
+                                      Visitor Meeting Room
+                                    </label>
+                                    <div class="col-md-5 col-12 mt-4 mt-md-0 align-self-end">
+                                      <label class="fs-5 fw-bold mb-2">Category</label>
+                                      <div class="d-flex">
+                                        <select formControlName="visitorMeetingRoomCategory" class="form-select form-select-solid">
+                                          <option value="">-- Category --</option>
+                                          <option value="Pune">Pune</option>
+                                          <option value="Mumbai">Mumbai</option>
+                                          <option value="Delhi">Delhi</option>
+                                          <option value="Kolkata">Kolkata</option>
+                                        </select>
+                                        <i class="bi bi-plus-square-fill"></i>
+                
+                                      </div>
+                                      <div class="fv-row my-2">
+                                        
+                                        <label class="fs-5 fw-bold mb-2">Meeting Room Numbers</label>
+                                      
+                                        <input type="number" formControlName="visitorMeetingRoomNumber"
+                                          class="form-control form-control-solid">
+                                      
+                                      </div>
+                                    </div>
+                                  </div> 
+                                </div>-->
+                              </div>
+                              <hr>
+                              <!-- ============================================================================================================================= -->
+                              <div formGroupName="meetingRooms" class="d-flex flex-sm-row flex-column mb-5">
+                                <div class="col-md-4 col-12 fv-row my-2 align-self-start me-8">
+                                  <!--begin::Label-->
+                                  <label class="fs-5 fw-bold mb-2">Meeting Rooms</label>
+                                  <!--end::Label-->
+                                  <!--begin::Input-->
+                                  <div class="d-flex">
+                                    <select formControlName="meetingRoomsCategory" id="" class="form-select form-select-solid">
+                                      <option value=""></option>
+                                      <option value="Pune">Pune</option>
+                                      <option value="Mumbai">Mumbai</option>
+                                      <option value="Delhi">Delhi</option>
+                                      <option value="Kolkata">Kolkata</option>
+                                    </select>
+                                    <i class="bi bi-plus-square-fill"></i>
+                
+                                  </div>
+                                  <div class="fv-row my-2">
+                                    <!--begin::Label-->
+                                    <label class="fs-5 fw-bold mb-2">Meeting Room Numbers</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="number" min="0" formControlName="meetingRoomNumbers" class="form-control form-control-solid">
+                                    <!--end::Input-->
+                                  </div>
+                                  <!--end::Input-->
+                                  <!--end::Input-->
+                                </div>
+                                <div class="col-md-4 fv-row my-2 d-flex flex-row">
+                                  <div class="col-md-6 col-12 fv-row my-2 align-self-start me-8">
+                  
+                                    <div class="fv-row my-2">
+                  
+                                      <label class="fs-5 fw-bold mb-2">Mail Room</label>
+                                      <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                          <input type="radio" formControlName="mailRoom" class="btn-check" value="yes" id="btnradio13"
+                                            autocomplete="off"/>
+                                          <label class="btn btn-outline-success btn-outline" for="btnradio13">Yes</label>
+                    
+                                          <input type="radio" formControlName="mailRoom" class="btn-check" value="no" id="btnradio14"
+                                            autocomplete="off"/>
+                                          <label class="btn btn-outline-danger btn-outline" for="btnradio14" > No </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="fv-row my-2">
+                                      <label class="fs-5 fw-bold mb-2">BMS Room</label>
+                                      <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                          <input type="radio" formControlName="bmsRoom" class="btn-check" value="yes" id="btnradio15"
+                                            autocomplete="off" />
+                                          <label class="btn btn-outline-success btn-outline" for="btnradio15">Yes</label>
+                    
+                                          <input type="radio" formControlName="bmsRoom" class="btn-check" value="no" id="btnradio16"
+                                            autocomplete="off" />
+                                          <label class="btn btn-outline-danger btn-outline" for="btnradio16"> No </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="fv-row my-2">
+                  
+                                      <label class="fs-5 fw-bold mb-2">Compactor</label>
+                                      <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                          <input type="radio" formControlName="compactor" class="btn-check" value="yes" id="btnradio17"
+                                            autocomplete="off" />
+                                          <label class="btn btn-outline-success btn-outline" for="btnradio17">Yes</label>
+                    
+                                          <input type="radio" formControlName="compactor" class="btn-check" value="no" id="btnradio18"
+                                            autocomplete="off" />
+                                          <label class="btn btn-outline-danger btn-outline" for="btnradio18"> No </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- <div class="col-md-6 col-12 fv-row my-2 align-self-start me-8">
+                                    <div class="fv-row my-2">
+                  
+                                      <label class="fs-5 fw-bold mb-2">Compactor</label>
+                                      <div class="form-check form-check-custom flex-wrap flex-md-nowrap form-check-solid mb-3">
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                          <input type="radio" formControlName="compactor" class="btn-check" value="yes" id="btnradio17"
+                                            autocomplete="off" />
+                                          <label class="btn btn-outline-success btn-outline" for="btnradio17">Yes</label>
+                    
+                                          <input type="radio" formControlName="compactor" class="btn-check" value="no" id="btnradio18"
+                                            autocomplete="off" />
+                                          <label class="btn btn-outline-danger btn-outline" for="btnradio18"> No </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div> -->
+                                </div>
+                                <!-- <div class="row pt-4">
+                                  <div class="form-check form-check-custom form-check-solid mb-3">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                      <input type="radio" formControlName="mailRoom" class="btn-check" value="yes" id="btnradio13"
+                                        autocomplete="off" />
+                                      <label class="btn btn-outline-success btn-outline" for="btnradio13">Yes</label>
+                
+                                      <input type="radio" formControlName="mailRoom" class="btn-check" value="no" id="btnradio14"
+                                        autocomplete="off" />
+                                      <label class="btn btn-outline-danger btn-outline" for="btnradio14"> No </label>
+                                    </div>
+                                    <label class="form-check-label fs-5 fw-bold mb-2" for="flexCheckDefault">
+                                      Mail Room
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-custom form-check-solid mb-3">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                      <input type="radio" formControlName="bmsRoom" class="btn-check" value="yes" id="btnradio15"
+                                        autocomplete="off" />
+                                      <label class="btn btn-outline-success btn-outline" for="btnradio15">Yes</label>
+                
+                                      <input type="radio" formControlName="bmsRoom" class="btn-check" value="no" id="btnradio16"
+                                        autocomplete="off" />
+                                      <label class="btn btn-outline-danger btn-outline" for="btnradio16"> No </label>
+                                    </div>
+                                    <label class="form-check-label fs-5 fw-bold mb-2" for="flexCheckDefault">
+                                      BMS Room
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-check-custom form-check-solid mb-3">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                      <input type="radio" formControlName="compactor" class="btn-check" value="yes" id="btnradio17"
+                                        autocomplete="off" />
+                                      <label class="btn btn-outline-success btn-outline" for="btnradio17">Yes</label>
+                
+                                      <input type="radio" formControlName="compactor" class="btn-check" value="no" id="btnradio18"
+                                        autocomplete="off" />
+                                      <label class="btn btn-outline-danger btn-outline" for="btnradio18"> No </label>
+                                    </div>
+                                    <label class="form-check-label fs-5 fw-bold mb-2" for="flexCheckDefault">
+                                      Compactor
+                                    </label>
+                                  </div> 
+                                </div>-->
+                              </div>
+                              <div class="d-flex flex-wrap flex-md-nowrap justify-content-end gap-6 w-100">
+                                <button type="button" class="btn btn-danger col-md-3 col-12" id="kt_contact_submit_button">
+                                  <span class="indicator-label">Summarize Requirement</span>
+                                  <!-- <span class="indicator-progress">Please wait...
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
+                                </button>
+                                <button type="submit" class="btn btn-danger col-md-3 col-12" id="kt_contact_submit_button">
+                                  <!--begin::Indicator-->
+                                  <span class="indicator-label">Confirm Requirement</span>
+                                  <!-- <span class="indicator-progress">Please wait..
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> -->
+                                  <!--end::Indicator-->
+                                </button>
+                              </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

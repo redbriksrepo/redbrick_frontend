@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="card shadow">
+        <div class="card-body p-lg-17">
+            <h1>Location Details</h1>
+
+            <div *ngFor="let locationPreview of locationPreviews" class="container d-flex flex-column justify-content-center">
+                <div *ngIf="locationPreview.location === location" class="d-flex justify-content-center align-items-center flex-column">
+                    <h2 class="my-8">{{ locationPreview.location }}</h2>
+                    <div class="d-flex flex-md-row flex-column justify-content-evenly gap-4" *ngIf="locationPreview.images.length > 0">
+                        <div  *ngFor="let image of locationPreview.images" class="card col-md-5 col-12 overflow-hidden">
+                            <img [src]="image" class="w-100">
+                        </div>
+                    </div>
+                    <div *ngIf="locationPreview.images.length == 0">
+                        <h1>No Image Found!!!</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end my-3">
+                <button class="btn btn-danger" (click)="initProposal()">Add Proposal</button>
+            </div>
+        </div>
+    </div>
+</div>

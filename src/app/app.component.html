@@ -1,0 +1,13 @@
+
+    <mat-toolbar color="primary">
+        <div class="toolbar-list">
+            <h1 routerLink="/dashboard">Home</h1>
+            <h1 routerLink="/users">User</h1>
+            <h1 routerLink="/location">Location</h1>
+        </div>
+        <ng-container *ngIf="!isAuthenticated; else isNotAuthenticated"><h1  routerLink="/login">Login</h1></ng-container>
+        <ng-template #isNotAuthenticated><h1 (click)="logout()">Log Out</h1></ng-template>
+    </mat-toolbar>
+<div class="container-fluid">
+    <router-outlet></router-outlet>
+</div>
